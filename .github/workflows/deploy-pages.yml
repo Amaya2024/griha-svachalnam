@@ -4,7 +4,9 @@
 
 name: project site
 
-on: push
+on:
+  push:
+    branches: [ "main" ]
 
 jobs:
   deploy:
@@ -17,7 +19,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: install mkdocs
         run: pip install mkdocs
-      - name: cmpile and generate the site
+      - name: compile and generate the site
         run: mkdocs build
       - name: init new repo in site/ and add all files
         run: |
@@ -29,5 +31,4 @@ jobs:
           git config --global http.sslverify false
           git commit -m "Deploy"
           git branch -M main
-          git push -f https://Amaya2024:${{ secrets.PAT }}\
-          @github.com/Amaya2024/grihasvachalnam.git main:gh-pages
+          git push -f git@github.com:Amaya2024/griha-svachalnam.git main:gh-pages
