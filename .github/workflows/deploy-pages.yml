@@ -12,7 +12,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    Steps:
+    steps:
       - name: checkout project
         uses: actions/checkout@v3
         with:
